@@ -17,6 +17,11 @@
 		6E2BAF0F27DF79A200E7BBDC /* CDcrudOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF0E27DF79A200E7BBDC /* CDcrudOperationsTests.swift */; };
 		6E2BAF1927DF79A200E7BBDC /* CDcrudOperationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF1827DF79A200E7BBDC /* CDcrudOperationsUITests.swift */; };
 		6E2BAF1B27DF79A200E7BBDC /* CDcrudOperationsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF1A27DF79A200E7BBDC /* CDcrudOperationsUITestsLaunchTests.swift */; };
+		6E2BAF2D27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF2B27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift */; };
+		6E2BAF2E27DF7AE900E7BBDC /* CDEmployee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF2C27DF7AE900E7BBDC /* CDEmployee+CoreDataProperties.swift */; };
+		6E2BAF3127DF7C6A00E7BBDC /* EmployeeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF3027DF7C6A00E7BBDC /* EmployeeDataRepository.swift */; };
+		6E2BAF3327DF7E1E00E7BBDC /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF3227DF7E1E00E7BBDC /* PersistentStorage.swift */; };
+		6E2BAF3527DF7FED00E7BBDC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF3427DF7FED00E7BBDC /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		6E2BAF1427DF79A200E7BBDC /* CDcrudOperationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDcrudOperationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2BAF1827DF79A200E7BBDC /* CDcrudOperationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDcrudOperationsUITests.swift; sourceTree = "<group>"; };
 		6E2BAF1A27DF79A200E7BBDC /* CDcrudOperationsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDcrudOperationsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6E2BAF2B27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEmployee+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		6E2BAF2C27DF7AE900E7BBDC /* CDEmployee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEmployee+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		6E2BAF3027DF7C6A00E7BBDC /* EmployeeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDataRepository.swift; sourceTree = "<group>"; };
+		6E2BAF3227DF7E1E00E7BBDC /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		6E2BAF3427DF7FED00E7BBDC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,9 @@
 		6E2BAEF327DF79A000E7BBDC /* CDcrudOperations */ = {
 			isa = PBXGroup;
 			children = (
+				6E2BAF2F27DF7C3D00E7BBDC /* Repository */,
+				6E2BAF2B27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift */,
+				6E2BAF2C27DF7AE900E7BBDC /* CDEmployee+CoreDataProperties.swift */,
 				6E2BAEF427DF79A000E7BBDC /* AppDelegate.swift */,
 				6E2BAEF627DF79A000E7BBDC /* SceneDelegate.swift */,
 				6E2BAEF827DF79A000E7BBDC /* ViewController.swift */,
@@ -109,6 +122,8 @@
 				6E2BAF0227DF79A200E7BBDC /* LaunchScreen.storyboard */,
 				6E2BAF0527DF79A200E7BBDC /* Info.plist */,
 				6E2BAEFD27DF79A000E7BBDC /* CDcrudOperations.xcdatamodeld */,
+				6E2BAF3227DF7E1E00E7BBDC /* PersistentStorage.swift */,
+				6E2BAF3627DF800F00E7BBDC /* Models */,
 			);
 			path = CDcrudOperations;
 			sourceTree = "<group>";
@@ -128,6 +143,22 @@
 				6E2BAF1A27DF79A200E7BBDC /* CDcrudOperationsUITestsLaunchTests.swift */,
 			);
 			path = CDcrudOperationsUITests;
+			sourceTree = "<group>";
+		};
+		6E2BAF2F27DF7C3D00E7BBDC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6E2BAF3027DF7C6A00E7BBDC /* EmployeeDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6E2BAF3627DF800F00E7BBDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E2BAF3427DF7FED00E7BBDC /* Models.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E2BAF3327DF7E1E00E7BBDC /* PersistentStorage.swift in Sources */,
 				6E2BAEF927DF79A000E7BBDC /* ViewController.swift in Sources */,
+				6E2BAF2D27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift in Sources */,
+				6E2BAF3127DF7C6A00E7BBDC /* EmployeeDataRepository.swift in Sources */,
 				6E2BAEF527DF79A000E7BBDC /* AppDelegate.swift in Sources */,
 				6E2BAEFF27DF79A000E7BBDC /* CDcrudOperations.xcdatamodeld in Sources */,
+				6E2BAF3527DF7FED00E7BBDC /* Models.swift in Sources */,
+				6E2BAF2E27DF7AE900E7BBDC /* CDEmployee+CoreDataProperties.swift in Sources */,
 				6E2BAEF727DF79A000E7BBDC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
