@@ -7,23 +7,43 @@
 
 import UIKit
 
-class CreateEmployeeVC: UIViewController {
+class CreateEmployeeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imgProfilePicture: UIImageView!
+    @IBOutlet weak var txtEmployeeName: UITextField!
+    @IBOutlet weak var txtEmployeeEmailId: UITextField!
+    private let manager : EmployeeManager = EmployeeManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        debugPrint(path[0])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func selectImage(_ sender: Any) {
+           let picker = UIImagePickerController()
+           picker.sourceType = .savedPhotosAlbum
+           picker.delegate = self
+           present(picker, animated: true)
     }
-    */
+    
+    @IBAction func createButtonTapped(_ sender: Any) {
+
+           let employee = Employee(name: txtEmployeeName.text, email: txtEmployeeEmailId.text, profilePicture: imgProfilePicture.image?.pngData(), id: UUID())
+
+           manager.createEmployee(employee: employee)
+        self.performSegue(withIdentifier: SegueIdentifier.navigateToEmployeeList, sender: nil)
+    }
+    
+    // MARK: Image picker delegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let img = info[.originalImage] as? UIImage
+        self.imgProfilePicture.image = img
+
+        dismiss(animated: true, completion: nil)
+    }
 
 }

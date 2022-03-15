@@ -27,6 +27,7 @@
 		6E2BAF3F27E0A04100E7BBDC /* CreateEmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF3E27E0A04100E7BBDC /* CreateEmployeeVC.swift */; };
 		6E2BAF4127E0A06700E7BBDC /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF4027E0A06700E7BBDC /* DetailVC.swift */; };
 		6E2BAF4327E0A08B00E7BBDC /* EmployeeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF4227E0A08B00E7BBDC /* EmployeeListCell.swift */; };
+		6E2BAF4627E0A78F00E7BBDC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAF4527E0A78F00E7BBDC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		6E2BAF3E27E0A04100E7BBDC /* CreateEmployeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmployeeVC.swift; sourceTree = "<group>"; };
 		6E2BAF4027E0A06700E7BBDC /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		6E2BAF4227E0A08B00E7BBDC /* EmployeeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListCell.swift; sourceTree = "<group>"; };
+		6E2BAF4527E0A78F00E7BBDC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				6E2BAEFD27DF79A000E7BBDC /* CDcrudOperations.xcdatamodeld */,
 				6E2BAF3227DF7E1E00E7BBDC /* PersistentStorage.swift */,
 				6E2BAF4427E0A0D900E7BBDC /* Controllers */,
+				6E2BAF4727E0A79300E7BBDC /* Constants */,
 			);
 			path = CDcrudOperations;
 			sourceTree = "<group>";
@@ -190,6 +193,14 @@
 				6E2BAF4227E0A08B00E7BBDC /* EmployeeListCell.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6E2BAF4727E0A79300E7BBDC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6E2BAF4527E0A78F00E7BBDC /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				6E2BAF4127E0A06700E7BBDC /* DetailVC.swift in Sources */,
 				6E2BAEF927DF79A000E7BBDC /* ViewController.swift in Sources */,
 				6E2BAF2D27DF7AE900E7BBDC /* CDEmployee+CoreDataClass.swift in Sources */,
+				6E2BAF4627E0A78F00E7BBDC /* Constants.swift in Sources */,
 				6E2BAF4327E0A08B00E7BBDC /* EmployeeListCell.swift in Sources */,
 				6E2BAF3827E097F500E7BBDC /* EmployeeManager.swift in Sources */,
 				6E2BAF3127DF7C6A00E7BBDC /* EmployeeDataRepository.swift in Sources */,
