@@ -13,8 +13,8 @@ protocol EmployeeRepository {
     func create(employee: Employee)
     func getAll() -> [Employee]?
     func get(byIdentifier id: UUID) -> Employee?
-    func update(employee : Employee)
-    func delete(record: Employee)
+    func update(employee : Employee) -> Bool
+    func delete(record: Employee) ->Bool
     
 }
 
@@ -41,28 +41,33 @@ struct EmployeeDataREpository : EmployeeRepository {
     }
     
     func get(byIdentifier id: UUID) -> Employee? {
+       let result = getCDEmployee(byIdentifier: id)
+        guard result != nil else {return nil}
+        return result?.convertToEmployee()
+    }
+    
+    func update(employee: Employee) -> Bool {
+        return true
+    }
+    
+    func delete(record: Employee) -> Bool {
+        return false
+    }
+    
+    private func getCDEmployee(byIdentifier id: UUID) -> CDEmployee? {
+        
         let fetchRequest = NSFetchRequest<CDEmployee>(entityName: "CDEmployee")
         let predicate = NSPredicate(format: "id==%@", id as CVarArg)
         fetchRequest.predicate = predicate
         do {
             let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
             guard result != nil else {return nil}
-            return result?.convertToEmployee()
+            return result
             
         } catch let error {
             debugPrint(error)
         }
         return nil
     }
-    
-    func update(employee: Employee) {
-        
-    }
-    
-    func delete(record: Employee) {
-        
-    }
-    
-   
     
 }
