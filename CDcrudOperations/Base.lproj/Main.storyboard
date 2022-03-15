@@ -23,8 +23,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="boW-af-7iC">
-                                <rect key="frame" x="70" y="205.5" width="240" height="177"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="boW-af-7iC">
+                                <rect key="frame" x="87" y="205.5" width="240" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -50,7 +50,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Create"/>
                                 <connections>
                                     <action selector="createButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICn-uc-Iiq"/>
-                                    <segue destination="dG2-jB-pEt" kind="show" identifier="navigateToEmployeeList" id="YzG-1i-xJf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +61,7 @@
                         <outlet property="imgProfilePicture" destination="boW-af-7iC" id="uru-Gc-QEO"/>
                         <outlet property="txtEmployeeEmailId" destination="ejn-fI-sMZ" id="V9V-GB-rPz"/>
                         <outlet property="txtEmployeeName" destination="7M2-DF-p1W" id="gPg-9B-icy"/>
+                        <segue destination="dG2-jB-pEt" kind="show" identifier="navigateToEmployeeList" id="Qev-rE-Uuc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -107,6 +107,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imgProfilePicture" destination="8Qh-eN-XAU" id="aHg-Rt-gEn"/>
+                                            <outlet property="lblEmployeeName" destination="K9D-BX-Fh0" id="Qav-kZ-XjG"/>
                                             <segue destination="6LA-EQ-Vlx" kind="show" identifier="navigateToDetailedEmployeeView" id="ZdG-pL-RXq"/>
                                         </connections>
                                     </tableViewCell>
@@ -121,10 +123,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="vgq-C5-HSt"/>
+                    <connections>
+                        <outlet property="tblEmployee" destination="mOV-fE-5ET" id="QS2-lD-6Yd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7c-wl-wAS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642.0289855072465" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1900" y="125"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="jZ7-Md-Qay">
@@ -133,14 +138,65 @@
                     <view key="view" contentMode="scaleToFill" id="Kud-Co-0UF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OKQ-gy-xDY">
+                                <rect key="frame" x="69" y="450" width="277" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="593-en-QHJ">
+                                <rect key="frame" x="86" y="151" width="240" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="r3B-im-AfT" appends="YES" id="DBt-ce-0ta"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-LL-hKz">
+                                <rect key="frame" x="99" y="536" width="96" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="6LA-EQ-Vlx" eventType="touchUpInside" id="nyR-Cb-gYc"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-Nb-ext">
+                                <rect key="frame" x="69" y="376" width="277" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-hq-Tjt">
+                                <rect key="frame" x="230" y="536" width="96" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="6LA-EQ-Vlx" eventType="touchUpInside" id="QlT-lW-LUe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ARP-fI-qpd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nqw-eT-S7m"/>
+                    <connections>
+                        <outlet property="imgProfilePicture" destination="593-en-QHJ" id="qk8-ph-YKf"/>
+                        <outlet property="txtEmployeeEmail" destination="OKQ-gy-xDY" id="GAd-QW-iFG"/>
+                        <outlet property="txtEmployeeName" destination="JQ5-Nb-ext" id="i9d-gU-niK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9I-NY-GuG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="r3B-im-AfT">
+                    <connections>
+                        <action selector="selectImage:" destination="6LA-EQ-Vlx" id="Xb4-4j-FaF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2297.1014492753625" y="103.79464285714285"/>
+            <point key="canvasLocation" x="2793" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aIk-xg-F0b">
@@ -165,6 +221,9 @@
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

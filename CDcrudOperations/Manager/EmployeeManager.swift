@@ -16,8 +16,8 @@ struct EmployeeManager {
         _employeeDataRepository.create(employee: employee)
     }
     
-    func deleteEmployee(employee : Employee) -> Bool {
-        return _employeeDataRepository.delete(record: employee)
+    func deleteEmployee(id : UUID) -> Bool {
+        return _employeeDataRepository.delete(id : id)
     }
     
     func updateEmployee(employee : Employee) -> Bool {
