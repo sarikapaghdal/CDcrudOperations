@@ -47,11 +47,23 @@ struct EmployeeDataREpository : EmployeeRepository {
     }
     
     func update(employee: Employee) -> Bool {
+        let cdEmployee = getCDEmployee(byIdentifier: employee.id)
+        guard cdEmployee != nil else {return false}
+        
+        cdEmployee?.email = employee.email
+        cdEmployee?.profilePic = employee.profilePicture
+        cdEmployee?.name = employee.name
+    
+        PersistentStorage.shared.saveContext()
         return true
     }
     
     func delete(record: Employee) -> Bool {
-        return false
+        let cdEmployee = getCDEmployee(byIdentifier: record.id)
+        guard cdEmployee != nil else {return false}
+        
+        PersistentStorage.shared.context.delete(cdEmployee!)
+        return true
     }
     
     private func getCDEmployee(byIdentifier id: UUID) -> CDEmployee? {
